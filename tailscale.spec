@@ -1,7 +1,7 @@
 %global debug_package %{nil}
 
 Name:		tailscale
-Version:	1.84.1
+Version:	1.86.0
 Release:	1
 Source0:	https://github.com/tailscale/tailscale/archive/v%{version}/%{name}-%{version}.tar.gz
 Source1:    %{name}-%{version}-vendor.tar.gz
