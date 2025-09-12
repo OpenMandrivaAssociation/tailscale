@@ -1,10 +1,14 @@
 %global debug_package %{nil}
 
 Name:		tailscale
-Version:	1.86.2
+Version:	1.88.1
 Release:	1
 Source0:	https://github.com/tailscale/tailscale/archive/v%{version}/%{name}-%{version}.tar.gz
-Source1:    %{name}-%{version}-vendor.tar.gz
+# go mod download tailscale.com/cmd/tailscale tailscale.com/cmd/tailscaled
+# go mod vendor -e
+# Error for https://github.com/tdakkota/asciicheck dependency for unneeded build files
+# Run after erroring out normally
+Source1:	%{name}-%{version}-vendor.tar.gz
 Summary:	The easiest, most secure way to use WireGuard and 2FA
 URL:		https://github.com/tailscale/tailscale
 License:	BSD-3-Clause
@@ -17,7 +21,7 @@ BuildRequires:	go
 
 %prep
 %autosetup -p1
-tar -zxf %{S:1}
+#tar -zxf %{S:1}
 
 %build
 go build tailscale.com/cmd/tailscale
