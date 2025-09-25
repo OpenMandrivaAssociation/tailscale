@@ -1,7 +1,7 @@
 %global debug_package %{nil}
 
 Name:		tailscale
-Version:	1.88.1
+Version:	1.88.3
 Release:	1
 Source0:	https://github.com/tailscale/tailscale/archive/v%{version}/%{name}-%{version}.tar.gz
 # go mod download tailscale.com/cmd/tailscale tailscale.com/cmd/tailscaled
@@ -21,11 +21,11 @@ BuildRequires:	go
 
 %prep
 %autosetup -p1
-#tar -zxf %{S:1}
+tar -zxf %{S:1}
 
 %build
-go build tailscale.com/cmd/tailscale
-go build tailscale.com/cmd/tailscaled
+go build --buildmode=pie tailscale.com/cmd/tailscale
+go build --buildmode=pie tailscale.com/cmd/tailscaled
 
 %install
 install -Dm755 tailscale tailscaled -t %{buildroot}%{_bindir}

@@ -1,3 +1,3 @@
 sources:
-  tailscale-1.88.1.tar.gz: f5770d6e963a2f9bb925cb402eeb2d948cc7d70e
-  tailscale-1.88.1-vendor.tar.gz: a91ce9416ea4ddc6506af737fd4ab3188ce2566d
+  tailscale-1.88.3.tar.gz: 8325a3dbc7660ad95e84daf0e9348bd22893a48d
+  tailscale-1.88.3-vendor.tar.gz: 7512226d0d80d19f0aea5ca05a91fc1a7fa84778
