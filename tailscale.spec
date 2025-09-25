@@ -4,7 +4,6 @@ Name:		tailscale
 Version:	1.88.3
 Release:	1
 Source0:	https://github.com/tailscale/tailscale/archive/v%{version}/%{name}-%{version}.tar.gz
-# go mod download tailscale.com/cmd/tailscale tailscale.com/cmd/tailscaled
 # go mod vendor -e
 # Error for https://github.com/tdakkota/asciicheck dependency for unneeded build files
 # Run after erroring out normally
