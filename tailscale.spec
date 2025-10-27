@@ -1,7 +1,7 @@
 %global debug_package %{nil}
 
 Name:		tailscale
-Version:	1.90.1
+Version:	1.90.2
 Release:	1
 Source0:	https://github.com/tailscale/tailscale/archive/v%{version}/%{name}-%{version}.tar.gz
 # Dependency is only fetchable from proxy run commands below to vendor
@@ -32,15 +32,6 @@ go build --buildmode=pie -o bin/%{name}d ./cmd/%{name}d
 install -Dm0755 bin/%{name}cli %{buildroot}%{_bindir}/%{name}cli
 install -Dm0755 bin/%{name}d %{buildroot}%{_sbindir}/%{name}d
 install -Dm0755 cmd/%{name}d/%{name}d.service %{buildroot}%{_unitdir}/%{name}d.service
-
-%post
-%systemd_post tailscaled.service
-
-%preun
-%systemd_preun tailscaled.service
-
-%postun
-%systemd_postun tailscaled.service
 
 %files
 %license LICENSE
