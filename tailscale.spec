@@ -1,7 +1,7 @@
 %global debug_package %{nil}
 
 Name:		tailscale
-Version:	1.90.3
+Version:	1.90.6
 Release:	1
 Source0:	https://github.com/tailscale/tailscale/archive/v%{version}/%{name}-%{version}.tar.gz
 # Dependency is only fetchable from proxy run commands below to vendor
