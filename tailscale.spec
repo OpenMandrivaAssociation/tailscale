@@ -2,7 +2,7 @@
 
 Name:		tailscale
 Version:	1.90.6
-Release:	1
+Release:	2
 Source0:	https://github.com/tailscale/tailscale/archive/v%{version}/%{name}-%{version}.tar.gz
 # Dependency is only fetchable from proxy run commands below to vendor
 # export GOPROXY=https://proxy.golang.org,direct
@@ -25,18 +25,19 @@ tar -zxf %{S:1}
 %build
 export GOPROXY=https://proxy.golang.org,direct
 export LDFLAGS="-s -w -X tailscale.com/version.longStamp=%{version} -X tailscale.com/version.shortStamp="
-go build --buildmode=pie -o bin/%{name}cli ./cmd/%{name}
+go build --buildmode=pie -o bin/%{name} ./cmd/%{name}
 go build --buildmode=pie -o bin/%{name}d ./cmd/%{name}d
 
 %install
-install -Dm0755 bin/%{name}cli %{buildroot}%{_bindir}/%{name}cli
+install -Dm0755 bin/%{name} %{buildroot}%{_bindir}/%{name}
 install -Dm0755 bin/%{name}d %{buildroot}%{_sbindir}/%{name}d
 install -Dm0755 cmd/%{name}d/%{name}d.service %{buildroot}%{_unitdir}/%{name}d.service
+install -Dm644 cmd/tailscaled/tailscaled.defaults %{buildroot}%{_sysconfdir}/default/tailscaled
 
 %files
 %license LICENSE
 %doc README.md LICENSE PATENTS api.md SECURITY.md docs
-%{_bindir}/%{name}cli
+%{_bindir}/%{name}
 %{_bindir}/tailscaled
 %{_unitdir}/tailscaled.service
-
+%{_sysconfdir}/default/tailscaled
