@@ -2,7 +2,7 @@
 
 Name:		tailscale
 Version:	1.90.6
-Release:	2
+Release:	3
 Source0:	https://github.com/tailscale/tailscale/archive/v%{version}/%{name}-%{version}.tar.gz
 # Dependency is only fetchable from proxy run commands below to vendor
 # export GOPROXY=https://proxy.golang.org,direct
@@ -24,9 +24,13 @@ tar -zxf %{S:1}
 
 %build
 export GOPROXY=https://proxy.golang.org,direct
-export LDFLAGS="-s -w -X tailscale.com/version.longStamp=%{version} -X tailscale.com/version.shortStamp="
-go build --buildmode=pie -o bin/%{name} ./cmd/%{name}
-go build --buildmode=pie -o bin/%{name}d ./cmd/%{name}d
+    GO_LDFLAGS="\
+        -linkmode=external \
+        -X tailscale.com/version.longStamp=%{version} \
+        -X tailscale.com/version.shortStamp=$(cut -d+ -f1 <<< "%{version}")"
+
+go build --buildmode=pie -ldflags "$GO_LDFLAGS" -o bin/%{name} ./cmd/%{name}
+go build --buildmode=pie -ldflags "$GO_LDFLAGS" -o bin/%{name}d ./cmd/%{name}d
 
 %install
 install -Dm0755 bin/%{name} %{buildroot}%{_bindir}/%{name}
