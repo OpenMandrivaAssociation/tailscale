@@ -1,3 +1,3 @@
 sources:
-  tailscale-1.90.9.tar.gz: e5a5337c18eacaaa1d840f92a5f302b533f46393
-  tailscale-1.90.9-vendor.tar.gz: 6c7ffd32c7aad001a2e6ac5058c6e9accd85e126
+  tailscale-1.92.3.tar.gz: 38284edb9b8b95162a1bb2405d35c98836e431b3
+  tailscale-1.92.3-vendor.tar.gz: f830cc218e112dc95d8bb6a5139d898e6cde549f
