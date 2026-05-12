@@ -1,19 +1,22 @@
 %global debug_package %{nil}
 
 Name:		tailscale
-Version:	1.94.1
+Version:	1.96.4
 Release:	1
 Source0:	https://github.com/tailscale/tailscale/archive/v%{version}/%{name}-%{version}.tar.gz
-# Dependency is only fetchable from proxy run commands below to vendor
+# Unless patched, one dependency is only fetchable from proxy run commands below to vendor
 # export GOPROXY=https://proxy.golang.org,direct
 # go mod vendor
-Source1:	%{name}-%{version}-vendor.tar.gz
+Source1:	%{name}-%{version}-vendor.tar.xz
 Summary:	The easiest, most secure way to use WireGuard and 2FA
 URL:		https://github.com/tailscale/tailscale
 License:	BSD-3-Clause
 Group:		Network/Remote access
 
 BuildRequires:	go
+
+%patchlist
+tailscale-1.96.4-new-asciicheck-url.patch
 
 %description
 %summary.
@@ -23,11 +26,10 @@ BuildRequires:	go
 tar -zxf %{S:1}
 
 %build
-export GOPROXY=https://proxy.golang.org,direct
-    GO_LDFLAGS="\
-        -linkmode=external \
-        -X tailscale.com/version.longStamp=%{version} \
-        -X tailscale.com/version.shortStamp=$(cut -d+ -f1 <<< "%{version}")"
+GO_LDFLAGS="\
+	-linkmode=external \
+	-X tailscale.com/version.longStamp=%{version} \
+	-X tailscale.com/version.shortStamp=$(cut -d+ -f1 <<< "%{version}")"
 
 go build --buildmode=pie -ldflags "$GO_LDFLAGS" -o bin/%{name} ./cmd/%{name}
 go build --buildmode=pie -ldflags "$GO_LDFLAGS" -o bin/%{name}d ./cmd/%{name}d

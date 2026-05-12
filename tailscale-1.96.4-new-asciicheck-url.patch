@@ -1,0 +1,21 @@
+diff -up tailscale-1.96.4/go.mod.omv~ tailscale-1.96.4/go.mod
+--- tailscale-1.96.4/go.mod.omv~	2026-05-12 15:44:29.289268883 +0200
++++ tailscale-1.96.4/go.mod	2026-05-12 15:44:51.797512458 +0200
+@@ -501,3 +501,5 @@ require (
+ )
+ 
+ tool github.com/stacklok/frizbee
++
++replace github.com/tdakkota/asciicheck => github.com/golangci/asciicheck v0.2.0
+diff -up tailscale-1.96.4/go.sum.omv~ tailscale-1.96.4/go.sum
+--- tailscale-1.96.4/go.sum.omv~	2026-05-12 15:44:39.841383076 +0200
++++ tailscale-1.96.4/go.sum	2026-05-12 15:44:58.533585350 +0200
+@@ -529,6 +529,8 @@ github.com/golang/protobuf v1.5.4 h1:i7e
+ github.com/golang/protobuf v1.5.4/go.mod h1:lnTiLA8Wa4RWRcIUkrtSVa5nRhsEGBg48fD6rSs7xps=
+ github.com/golang/snappy v0.0.4 h1:yAGX7huGHXlcLOEtBnF4w7FQwA26wojNCwOYAEhLjQM=
+ github.com/golang/snappy v0.0.4/go.mod h1:/XxbfmMg8lxefKM7IXC3fBNl/7bRcc72aCRzEWrmP2Q=
++github.com/golangci/asciicheck v0.2.0 h1:8XjfVwGLXloGLltr2AwcahnjbqXiYILwDWsQTvmglSE=
++github.com/golangci/asciicheck v0.2.0/go.mod h1:Qb7Y9EgjCLJGup51gDHFzbI08/gbGhL/UVhYIPWG2rg=
+ github.com/golangci/dupl v0.0.0-20180902072040-3e9179ac440a h1:w8hkcTqaFpzKqonE9uMCefW1WDie15eSP/4MssdenaM=
+ github.com/golangci/dupl v0.0.0-20180902072040-3e9179ac440a/go.mod h1:ryS0uhF+x9jgbj/N71xsEqODy9BN81/GonCZiOzirOk=
+ github.com/golangci/gofmt v0.0.0-20231018234816-f50ced29576e h1:ULcKCDV1LOZPFxGZaA6TlQbiM3J2GCPnkx/bGF6sX/g=
