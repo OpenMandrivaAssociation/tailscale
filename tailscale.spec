@@ -1,12 +1,27 @@
 %global debug_package %{nil}
 
 Name:		tailscale
-Version:	1.96.4
+Version:	1.98.8
 Release:	1
 Source0:	https://github.com/tailscale/tailscale/archive/v%{version}/%{name}-%{version}.tar.gz
 # Unless patched, one dependency is only fetchable from proxy run commands below to vendor
 # export GOPROXY=https://proxy.golang.org,direct
 # go mod vendor
+
+#Non export vendoring
+#tar xf tailscale-1.98.8.tar.gz
+#cd tailscale-1.98.8
+#cp go.mod go.mod.omv~
+#cp go.sum go.sum.omv~
+#go mod edit -replace github.com/tdakkota/asciicheck=github.com/golangci/asciicheck@v0.2.0
+#cat >> go.sum <<'EOF'
+#github.com/golangci/asciicheck v0.2.0 h1:8XjfVwGLXloGLltr2AwcahnjbqXiYILwDWsQTvmglSE=
+#github.com/golangci/asciicheck v0.2.0/go.mod h1:Qb7Y9EgjCLJGup51gDHFzbI08/gbGhL/UVhYIPWG2rg=
+#EOF
+#go mod vendor
+#cd ..
+#gendiff tailscale-1.98.8 .omv~ > tailscale-1.96.4-new-asciicheck-url.patch
+
 Source1:	%{name}-%{version}-vendor.tar.xz
 Summary:	The easiest, most secure way to use WireGuard and 2FA
 URL:		https://github.com/tailscale/tailscale
