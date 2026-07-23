@@ -19,9 +19,10 @@ Source0:	https://github.com/tailscale/tailscale/archive/v%{version}/%{name}-%{ve
 #github.com/golangci/asciicheck v0.2.0/go.mod h1:Qb7Y9EgjCLJGup51gDHFzbI08/gbGhL/UVhYIPWG2rg=
 #EOF
 #go mod vendor
+#tar -cJf tailscale-1.98.8-vendor.tar.xz vendor
 #cd ..
 #gendiff tailscale-1.98.8 .omv~ > tailscale-1.96.4-new-asciicheck-url.patch
-#tar -cJf tailscale-1.98.8-vendor.tar.xz vendor
+
 
 Source1:	%{name}-%{version}-vendor.tar.xz
 Summary:	The easiest, most secure way to use WireGuard and 2FA
