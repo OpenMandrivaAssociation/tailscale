@@ -1,18 +1,38 @@
-diff -up tailscale-1.98.8/go.mod.omv~ tailscale-1.98.8/go.mod
---- tailscale-1.98.8/go.mod.omv~	2026-07-11 15:20:11.983540969 -0400
-+++ tailscale-1.98.8/go.mod	2026-07-11 15:20:20.171574972 -0400
+diff -up tailscale-1.98.9/go.mod.omv~ tailscale-1.98.9/go.mod
+--- tailscale-1.98.9/go.mod.omv~        2026-07-23 15:53:34.817996392 -0400
++++ tailscale-1.98.9/go.mod     2026-07-23 15:53:50.190895110 -0400
 @@ -507,3 +507,5 @@ require (
  )
- 
+
  tool github.com/stacklok/frizbee
 +
 +replace github.com/tdakkota/asciicheck => github.com/golangci/asciicheck v0.2.0
-diff -up tailscale-1.98.8/go.sum.omv~ tailscale-1.98.8/go.sum
---- tailscale-1.98.8/go.sum.omv~	2026-07-11 15:20:16.246666838 -0400
-+++ tailscale-1.98.8/go.sum	2026-07-11 15:20:24.346698455 -0400
+diff -up tailscale-1.98.9/go.sum.omv~ tailscale-1.98.9/go.sum
+--- tailscale-1.98.9/go.sum.omv~        2026-07-23 15:53:42.676367622 -0400
++++ tailscale-1.98.9/go.sum     2026-07-23 15:54:13.514114582 -0400
 @@ -1800,3 +1800,5 @@ software.sslmate.com/src/go-pkcs12 v0.4.
  software.sslmate.com/src/go-pkcs12 v0.4.0/go.mod h1:Qiz0EyvDRJjjxGyUQa2cCNZn/wMyzrRJ/qcDXOQazLI=
  tailscale.com/client/tailscale/v2 v2.9.0 h1:zBZIIeIYXL42qvvile7d29O2DKSr3AfNc2gzd1JCf2o=
  tailscale.com/client/tailscale/v2 v2.9.0/go.mod h1:FGjvGT3ThHelqo0gfdK3IN3k1dwNbRzYbQh2XO3C47U=
 +github.com/golangci/asciicheck v0.2.0 h1:8XjfVwGLXloGLltr2AwcahnjbqXiYILwDWsQTvmglSE=
 +github.com/golangci/asciicheck v0.2.0/go.mod h1:Qb7Y9EgjCLJGup51gDHFzbI08/gbGhL/UVhYIPWG2rg=
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
