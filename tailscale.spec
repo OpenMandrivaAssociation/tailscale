@@ -21,6 +21,7 @@ Source0:	https://github.com/tailscale/tailscale/archive/v%{version}/%{name}-%{ve
 #go mod vendor
 #cd ..
 #gendiff tailscale-1.98.8 .omv~ > tailscale-1.96.4-new-asciicheck-url.patch
+#tar -cJf tailscale-1.98.8-vendor.tar.xz vendor
 
 Source1:	%{name}-%{version}-vendor.tar.xz
 Summary:	The easiest, most secure way to use WireGuard and 2FA
